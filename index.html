@@ -11,26 +11,35 @@
 
 <body>
 
+
+    
 <!-- ===========================
  TOP BLACK STRIP
 =========================== -->
 <div class="top-strip">
+    <div class="top-left">
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-youtube"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
     <div class="strip-text">
         Bulk Residential Units, Gated communities and high-rise contracts are Accepted!
     </div>
+
     <div class="brochure-btn">
-        <span>🔔 Brochure</span>
+        <i class="fas fa-bell"></i> Brochure
     </div>
 </div>
 
 <!-- ===========================
  HEADER
 =========================== -->
-<!-- ===========================
- HEADER WITH MOBILE MENU
-=========================== -->
 <header class="header">
-    <img src="Assets/logo.png" class="logo" alt="Logo">
+
+    <!-- LOGO -->
+    <img src="Assets/logo.png" class="logo" alt="Chary Logo">
 
     <!-- DESKTOP NAV -->
     <nav class="navbar">
@@ -39,16 +48,26 @@
         <a href="#">Contact Us</a>
     </nav>
 
-    <!-- HAMBURGER ICON (MOBILE) -->
+    <!-- CONTACT -->
+    <div class="contact-box">
+        <i class="fas fa-phone-volume"></i>
+        <div>
+            <p class="quick">Quick Contact</p>
+            <p class="number">9397098090</p>
+        </div>
+    </div>
+
+    <!-- HAMBURGER (MOBILE) -->
     <div class="hamburger" id="hamburger">
         <i class="fas fa-bars"></i>
     </div>
+
 </header>
 
-<!-- DARK BACKDROP -->
+<!-- MOBILE OVERLAY -->
 <div class="menu-overlay" id="menu-overlay"></div>
 
-<!-- SLIDE-IN MOBILE MENU -->
+<!-- MOBILE SLIDE MENU -->
 <div class="mobile-menu" id="mobile-menu">
     <div class="close-btn" id="close-btn">
         <i class="fas fa-times"></i>
@@ -59,28 +78,24 @@
     <a href="#">Contact Us</a>
 </div>
 
-
 <script>
 const hamburger = document.getElementById("hamburger");
 const mobileMenu = document.getElementById("mobile-menu");
 const closeBtn = document.getElementById("close-btn");
 const overlay = document.getElementById("menu-overlay");
 
-hamburger.addEventListener("click", () => {
+hamburger.onclick = () => {
     mobileMenu.classList.add("open");
     overlay.classList.add("show");
-});
+};
 
-closeBtn.addEventListener("click", () => {
+closeBtn.onclick = overlay.onclick = () => {
     mobileMenu.classList.remove("open");
     overlay.classList.remove("show");
-});
-
-overlay.addEventListener("click", () => {
-    mobileMenu.classList.remove("open");
-    overlay.classList.remove("show");
-});
+};
 </script>
+
+
 
 
 <!-- ===========================
@@ -102,6 +117,7 @@ overlay.addEventListener("click", () => {
     </div>
 </section>
 
+
 <!-- ===========================
  QUOTE FORM
 =========================== -->
@@ -115,12 +131,15 @@ overlay.addEventListener("click", () => {
             <input type="text" placeholder="Phone*" />
             <input type="text" placeholder="Location*" />
 
-            <select>
-                <option>Select Service</option>
-                <option>Windows</option>
-                <option>Doors</option>
-                <option>Balcony</option>
-            </select>
+           <select class="service-select">
+    <option selected>Select Service</option>
+    <option>Mosquito Net for Doors</option>
+    <option>Mosquito Net for Windows</option>
+    <option>Mosquito Net for Balcony</option>
+    <option>Repair</option>
+    <option>Mesh Change</option>
+</select>
+
 
             <button class="submit-btn">Submit Now →</button>
         </div>
@@ -334,53 +353,55 @@ img.addEventListener("mouseleave", () => {
 </script>
 
 
-
 <!-- ===========================
  WORKING PROCESS SECTION
 =========================== -->
 <section class="process-section">
 
+    <!-- Header -->
     <div class="process-header">
         <h2>Our Working Process</h2>
         <p>3 Easy Steps</p>
     </div>
 
+    <!-- Curved dashed line -->
     <div class="process-line"></div>
 
+    <!-- Steps -->
     <div class="process-steps">
 
-        <!-- STEP 1 -->
+        <!-- Step 1 -->
         <div class="process-item">
-            <div class="process-card tilt">
-                <img src="Assets/call.jpg" alt="">
+            <div class="process-card">
+                <img src="Assets/c1.png" alt="Call">
             </div>
             <h3>Schedule a Call</h3>
             <p>
-                CHARY MOSQUITO NETS services over all areas in Hyderabad.  
+                CHARY MOSQUITO NETS services over all areas in Hyderabad.
                 Call Us or Mail Us for appointments.
             </p>
         </div>
 
-        <!-- STEP 2 -->
+        <!-- Step 2 -->
         <div class="process-item">
-            <div class="process-card tilt">
-                <img src="Assets/calculator.svg" alt="">
+            <div class="process-card">
+                <img src="Assets/calculator.svg" alt="Calculator">
             </div>
             <h3>Get Estimation</h3>
             <p>
-                Free Site Inspection, Measurement & Estimation.  
-                We have the largest range of Mosquito Nets for Windows & Doors.
+                Free Site Inspection, Measurement & Estimation.
+                Retractable Mosquito Net for Windows & Doors.
             </p>
         </div>
 
-        <!-- STEP 3 -->
+        <!-- Step 3 -->
         <div class="process-item">
-            <div class="process-card tilt">
-                <img src="Assets/smile.jpg" alt="">
+            <div class="process-card">
+                <img src="Assets/s1.jpg" alt="Smile">
             </div>
             <h3>Install Insect Screen</h3>
             <p>
-                We provide best sales & service by trained teams  
+                We provide best sales & service by trained teams
                 for your requirements.
             </p>
         </div>
@@ -389,20 +410,14 @@ img.addEventListener("mouseleave", () => {
 
 </section>
 
-
 <script>
-document.querySelectorAll('.tilt').forEach(card => {
-    card.addEventListener("mousemove", e => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-
-        card.style.transform =
-            `rotate(${(-10 + x / 30)}deg) skew(${y / 80}deg)`;
+document.querySelectorAll('.process-card').forEach(card => {
+    card.addEventListener("mouseenter", () => {
+        card.style.transform = "rotate(0deg)";
     });
 
     card.addEventListener("mouseleave", () => {
-        card.style.transform = "rotate(-10deg)";
+        card.style.transform = "rotate(-12deg)";
     });
 });
 </script>
@@ -412,15 +427,19 @@ document.querySelectorAll('.tilt').forEach(card => {
  LET'S GET TOGETHER CTA
 =========================== -->
 <section class="together-section">
+  <div class="together-bg"></div>
 
-    <div class="together-box">
-        <h2>Let’s Get<br>Together</h2>
-        <p class="together-sub">Take Our Services</p>
+  <div class="together-shape">
+    <h2>Let’s Get<br>Together</h2>
+    <p>Take Our Services</p>
 
-        <a href="#" class="together-btn">Ping us on Whatsapp →</a>
-    </div>
-
+    <a href="#" class="together-btn">
+      Ping us on Whatsapp →
+    </a>
+  </div>
 </section>
+
+
 
 
 <!-- ===========================
